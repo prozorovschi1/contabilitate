@@ -1,0 +1,205 @@
+{% include 'navbar.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina principală</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 1.2rem;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .main-content h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .main-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .main-content button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .main-content button:hover {
+            background: #0056b3;
+        }
+
+        .messages {
+            list-style: none;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+
+        .testimonials {
+            background: #f8f9fa;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+
+        .testimonial {
+            flex: 0 0 300px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form,
+        .newsletter {
+            background: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button[type="submit"]:hover {
+            background: #218838;
+        }
+
+        footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Secțiunea de întâmpinare -->
+    <header>
+        <h1>Bine ai venit pe site-ul nostru!</h1>
+        <p>Servicii contabile pentru afaceri mici și mari</p>
+    </header>
+
+    <!-- Conținut principal -->
+    <div class="main-content">
+        <h2>Serviciile noastre</h2>
+        <p>Oferim soluții personalizate pentru gestionarea finanțelor tale. Contactează-ne pentru mai multe informații.</p>
+        <button>Contactează-ne</button>
+    </div>
+
+    <!-- Mesaje de succes -->
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="message">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- Secțiunea de testimoniale -->
+    <section class="testimonials">
+        <h2>Ce spun clienții noștri</h2>
+        <div class="testimonial-slider">
+            {% for testimonial in testimonials %}
+                <div class="testimonial">
+                    <p>"{{ testimonial.message }}"</p>
+                    <cite>- {{ testimonial.name }}</cite>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Formular de contact -->
+    <section class="contact-form">
+        <h2>Contactează-ne</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Trimite</button>
+        </form>
+    </section>
+
+    <!-- Formular de newsletter -->
+    <section class="newsletter">
+        <h2>Abonează-te la Newsletter</h2>
+        <form method="POST" action="/subscribe/">
+            {% csrf_token %}
+            {{ newsletter_form.as_p }}
+            <button type="submit">Abonează-te</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Compania Ta. Toate drepturile rezervate.</p>
+    </footer>
+
+    <!-- Script JS -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
