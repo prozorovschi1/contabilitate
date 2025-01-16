@@ -38,3 +38,22 @@ def subscribe(request):
         form = NewsletterForm()
 
     return render(request, 'home.html', {'form': form})
+
+
+def audit(request):
+    return render(request, 'audit.html')
+
+def evidenta_contabila(request):
+    return render(request, 'evidenta_contabila.html')
+
+def initierea_afacerii(request):
+    return render(request, 'initierea_afacerii.html')
+
+def consultanta_fiscala(request):
+    return render(request, 'consultanta_fiscala.html')
+
+def adresa_juridica(request):
+    return render(request, 'adresa_juridica.html')
+
+def toate_serviciile(request):
+    return render(request, 'toate_serviciile.html')

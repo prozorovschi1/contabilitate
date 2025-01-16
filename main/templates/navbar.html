@@ -1,3 +1,5 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -47,20 +49,51 @@
                 align-items: center;
             }
         }
+        .dropdown-content {
+    display: none;
+}
+
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">Contabilitate</div>
-        <div class="menu">
-            <a href="#servicii">Servicii</a>
-            <a href="#despre-noi">Despre Noi</a>
-            <a href="#calculatoare">Calculatoare</a>
-            <a href="#blog">Blog</a>
-            <a href="#cariera">Carieră</a>
-            <a href="#contacte">Contacte</a>
-            <a href="#login">Login</a>
-        </div>
-    </nav>
+    <nav>
+        <ul class="navbar">
+            <li><a href="{% url 'home' %}">Acasă</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Servicii</a>
+                <div class="dropdown-content">
+                    <a href="{% url 'audit' %}">Audit</a>
+                    <a href="{% url 'evidenta_contabila' %}">Evidența contabilă</a>
+                    <a href="{% url 'initierea_afacerii' %}">Inițierea afacerii</a>
+                    <a href="{% url 'consultanta_fiscala' %}">Consultanță fiscală</a>
+                    <a href="{% url 'adresa_juridica' %}">Adresă juridică</a>
+                    <a href="#">Toate serviciile</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Despre noi</a>
+                <div class="dropdown-content">
+                    <a href="#">Echipa</a>
+                    <a href="#">Parteneri</a>
+                    <a href="#">Testimonial</a>
+                </div>
+            </li>            
+
+        </li>
+        <li class="dropdown">
+            <a href="#">Calculatoare</a>
+            <div class="dropdown-content">
+                <a href="#">Avantaje IT PARK</a>
+                <a href="#">Calculator TVA</a>
+                <a href="#">Calculator Salarii</a>
+            </div>
+        </li>    
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Carieră</a></li>
+            <li><a href="#">Contacte</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>    
 </body>
 </html>
+
