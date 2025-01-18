@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect 
 from django.contrib import messages
 from .forms import ContactForm, NewsletterForm
-from .models import Testimonial
+from .models import Testimonial, BlogPost
 
 
 def home(request):
@@ -57,3 +57,7 @@ def adresa_juridica(request):
 
 def toate_serviciile(request):
     return render(request, 'toate_serviciile.html')
+
+def blog_list(request):
+    posts = BlogPost.objects.all().order_by('-created_at')
+    return render(request, 'blog_list.html', {'posts': posts})

@@ -235,3 +235,60 @@ footer p {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+
+/* Stiluri  Blog */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.blog-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.blog-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.blog-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 30%;
+}
+
+.blog-card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.blog-card .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #0056b3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.badge {
+    position: absolute;
+    background: green;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    top: 10px;
+    left: 10px;
+}
+
+/* Stiluri  Blog */

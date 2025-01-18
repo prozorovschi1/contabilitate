@@ -10,4 +10,6 @@ urlpatterns = [
     path('consultanta-fiscala/', views.consultanta_fiscala, name='consultanta_fiscala'),
     path('adresa-juridica/', views.adresa_juridica, name='adresa_juridica'),
     path('toate-serviciile/', views.toate_serviciile, name='toate_serviciile'),
+
+    path('blog/', views.blog_list, name='blog_list'),
 ]

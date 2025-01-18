@@ -1,5 +1,7 @@
 # forms.py
 from django import forms
+from .models import BlogPost
+
 
 class ContactForm(forms.Form):
     name = forms.CharField(max_length=100, label="Nume")
