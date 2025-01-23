@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect 
+from django.shortcuts import render, redirect, get_object_or_404 
 from django.contrib import messages
-from .forms import ContactForm, NewsletterForm
+from .forms import ContactForm, NewsletterForm, AuditPriceForm
 from .models import Testimonial, BlogPost
+from .utils import calculate_audit_price
 
 
 def home(request):
@@ -41,7 +42,24 @@ def subscribe(request):
 
 
 def audit(request):
-    return render(request, 'audit.html')
+    form = AuditPriceForm()
+    calculated_price = None
+
+    if request.method == 'POST':
+        form = AuditPriceForm(request.POST)
+        if form.is_valid():
+            sales_volume = form.cleaned_data['sales_volume']
+            activity_type = form.cleaned_data['activity_type']
+            employees = form.cleaned_data['employees']
+
+            calculated_price = calculate_audit_price(sales_volume, activity_type, employees)
+
+    context = {
+        'form': form,
+        'calculated_price': calculated_price,
+    }
+    
+    return render(request, 'audit.html', context)
 
 def evidenta_contabila(request):
     return render(request, 'evidenta_contabila.html')
@@ -61,3 +79,7 @@ def toate_serviciile(request):
 def blog_list(request):
     posts = BlogPost.objects.all().order_by('-created_at')
     return render(request, 'blog_list.html', {'posts': posts})
+
+def blog_detail(request, id):
+    post = get_object_or_404(BlogPost, id=id)
+    return render(request, 'blog_detail.html', {'post': post})

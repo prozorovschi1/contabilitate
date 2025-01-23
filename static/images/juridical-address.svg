@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 146 153.036">
+    <defs>
+        <style>
+            .cls-1{stroke:#707070}.cls-1,.cls-3{fill:url(#linear-gradient)}.cls-2{clip-path:url(#clip-path)}
+        </style>
+        <linearGradient id="linear-gradient" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#0d469d"/>
+            <stop offset="1" stop-color="#1554b7"/>
+        </linearGradient>
+        <clipPath id="clip-path">
+            <path id="Rectangle_162" d="M0 0h146v153.036H0z" class="cls-1" data-name="Rectangle 162" transform="translate(1327 1354)"/>
+        </clipPath>
+    </defs>
+    <g id="Mask_Group_4" class="cls-2" data-name="Mask Group 4" transform="translate(-1327 -1354)">
+        <g id="bank_1_" data-name="bank (1)" transform="translate(1327 1370.065)">
+            <path id="Path_4458" d="M146.531 136.172h-24.562a2.281 2.281 0 1 0 0 4.562h24.562a2.281 2.281 0 1 0 0-4.562z" class="cls-3" data-name="Path 4458" transform="translate(-15.625 -28.953)"/>
+            <path id="Path_4459" d="M143.719 121.484h-4.562v-6.844a2.281 2.281 0 0 0-2.281-2.281h-4.562v-54.75h4.563a2.281 2.281 0 0 0 2.281-2.281v-6.843h4.562a2.281 2.281 0 0 0 .88-4.385L73.882 14.443a2.281 2.281 0 0 0-1.765 0L1.4 44.1a2.281 2.281 0 0 0 .882 4.385h4.562v6.844a2.281 2.281 0 0 0 2.281 2.281h4.562v54.75H9.125a2.281 2.281 0 0 0-2.281 2.281v6.844H2.282A2.281 2.281 0 0 0 0 123.766v9.125a2.281 2.281 0 0 0 2.281 2.281h141.438a2.281 2.281 0 0 0 2.281-2.281v-9.125a2.281 2.281 0 0 0-2.281-2.282zm-15.969-9.125h-6.844v-54.75h6.844zm-15.969 0v-54.75h4.562v54.75zm-20.531 0v-54.75h4.562v54.75zm-20.531 0v-54.75h4.562v54.75zm-20.531 0v-54.75h4.562v54.75zm-20.531 0v-54.75h4.562v54.75zm9.125-54.75h6.844v54.75h-6.845zm20.531 0h6.844v54.75h-6.844zm20.531 0h6.844v54.75h-6.844zm20.531 0h6.844v54.75h-6.844zm-88.968-9.124h95.811a2.281 2.281 0 1 0 0-4.562H13.62L73 19.021l59.38 24.9h-2.35a2.281 2.281 0 0 0 0 4.562h4.563v4.562H11.406v-4.56zm6.844 9.125h6.844v54.75H18.25zm123.187 73H4.563v-4.562h102.656a2.281 2.281 0 1 0 0-4.562H11.407v-4.562h123.187v4.562h-4.563a2.281 2.281 0 0 0 0 4.562h11.407z" class="cls-3" data-name="Path 4459" transform="translate(0 -14.266)"/>
+            <path id="Path_4460" d="M121.969 52.547h24.562a2.281 2.281 0 0 0 0-4.562h-24.562a2.281 2.281 0 1 0 0 4.562z" class="cls-3" data-name="Path 4460" transform="translate(-15.625 -18.328)"/>
+            <path id="Path_4461" d="M88.594 31.485a2.281 2.281 0 0 0-2.281 2.281A4.562 4.562 0 1 1 81.75 29.2a2.281 2.281 0 1 0 0-4.562 9.125 9.125 0 1 0 9.125 9.125 2.281 2.281 0 0 0-2.281-2.278z" class="cls-3" data-name="Path 4461" transform="translate(-8.75 -15.516)"/>
+        </g>
+    </g>
+</svg>

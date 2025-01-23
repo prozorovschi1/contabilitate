@@ -1,99 +1,80 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="{% url 'home' %}">DirCont</a>
 
-{% load static %}
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+        <!-- Toggle Button for Mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #333;
-            padding: 0 20px;
-        }
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- Acasă -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Acasă</a>
+                </li>
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 14px 20px;
-            display: inline-block;
-        }
+                <!-- Servicii Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="serviciiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Servicii
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="serviciiDropdown">
+                        <li><a class="dropdown-item" href="{% url 'audit' %}">Audit</a></li>
+                        <li><a class="dropdown-item" href="{% url 'evidenta_contabila' %}">Evidența contabilă</a></li>
+                        <li><a class="dropdown-item" href="{% url 'initierea_afacerii' %}">Inițierea afacerii</a></li>
+                        <li><a class="dropdown-item" href="{% url 'consultanta_fiscala' %}">Consultanță fiscală</a></li>
+                        <li><a class="dropdown-item" href="{% url 'adresa_juridica' %}">Adresă juridică</a></li>
+                        <li><a class="dropdown-item" href="#">Toate serviciile</a></li>
+                    </ul>
+                </li>
 
-        .navbar a:hover {
-            background-color: #575757;
-            border-radius: 4px;
-        }
+                <!-- Despre Noi Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="despreNoiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Despre noi
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="despreNoiDropdown">
+                        <li><a class="dropdown-item" href="#">Echipa</a></li>
+                        <li><a class="dropdown-item" href="#">Parteneri</a></li>
+                        <li><a class="dropdown-item" href="#">Testimonial</a></li>
+                    </ul>
+                </li>
 
-        .navbar .logo {
-            font-size: 20px;
-            font-weight: bold;
-            color: #f4f4f4;
-        }
+                <!-- Calculatoare Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="calculatoareDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Calculatoare
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="calculatoareDropdown">
+                        <li><a class="dropdown-item" href="#">Avantaje IT PARK</a></li>
+                        <li><a class="dropdown-item" href="#">Calculator TVA</a></li>
+                        <li><a class="dropdown-item" href="#">Calculator Salarii</a></li>
+                    </ul>
+                </li>
 
-        .navbar .menu {
-            display: flex;
-            gap: 10px;
-        }
+                <!-- Blog -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog_list' %}">Blog</a>
+                </li>
 
-        @media (max-width: 768px) {
-            .navbar .menu {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-        .dropdown-content {
-    display: none;
-}
+                <!-- Carieră -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Carieră</a>
+                </li>
 
-    </style>
-</head>
-<body>
-    <nav>
-        <ul class="navbar">
-            <li><a href="{% url 'home' %}">Acasă</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropbtn">Servicii</a>
-                <div class="dropdown-content">
-                    <a href="{% url 'audit' %}">Audit</a>
-                    <a href="{% url 'evidenta_contabila' %}">Evidența contabilă</a>
-                    <a href="{% url 'initierea_afacerii' %}">Inițierea afacerii</a>
-                    <a href="{% url 'consultanta_fiscala' %}">Consultanță fiscală</a>
-                    <a href="{% url 'adresa_juridica' %}">Adresă juridică</a>
-                    <a href="#">Toate serviciile</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a href="#">Despre noi</a>
-                <div class="dropdown-content">
-                    <a href="#">Echipa</a>
-                    <a href="#">Parteneri</a>
-                    <a href="#">Testimonial</a>
-                </div>
-            </li>            
+                <!-- Contacte -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacte</a>
+                </li>
 
-        </li>
-        <li class="dropdown">
-            <a href="#">Calculatoare</a>
-            <div class="dropdown-content">
-                <a href="#">Avantaje IT PARK</a>
-                <a href="#">Calculator TVA</a>
-                <a href="#">Calculator Salarii</a>
-            </div>
-        </li>    
-            <li><a href="{% url 'blog_list' %}">Blog</a></li>
-            <li><a href="#">Carieră</a></li>
-            <li><a href="#">Contacte</a></li>
-            <li><a href="#">Login</a></li>
-        </ul>
-    </nav>    
-</body>
-</html>
-
+                <!-- Login -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

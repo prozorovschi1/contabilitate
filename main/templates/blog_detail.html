@@ -1,0 +1,33 @@
+{% include 'navbar.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">
+</head>
+<body>
+    <div class="blog-detail-container">
+        <!-- Secțiunea de titlu și imagine -->
+        <section class="blog-header">
+            <h1 class="blog-title">{{ post.title }}</h1>
+            <p class="blog-date">{{ post.created_at|date:"d M, Y" }}</p>
+            <img class="blog-image" src="{{ post.image.url }}" alt="{{ post.title }}">
+        </section>
+
+        <!-- Conținutul blogului -->
+        <section class="blog-content">
+            <p>{{ post.content }}</p>
+        </section>
+
+        <!-- Buton pentru întoarcerea la lista de bloguri -->
+        <div class="back-to-list">
+            <a href="{% url 'blog_list' %}" class="btn-back">Înapoi la Blog</a>
+        </div>
+    </div>
+</body>
+</html>
+

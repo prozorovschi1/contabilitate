@@ -12,4 +12,5 @@ urlpatterns = [
     path('toate-serviciile/', views.toate_serviciile, name='toate_serviciile'),
 
     path('blog/', views.blog_list, name='blog_list'),
+    path('blog/<int:id>/', views.blog_detail, name='blog_detail'),
 ]
