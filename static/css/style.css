@@ -1,51 +1,48 @@
-/* General styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
 
-/* Header styles */
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
 
-/* Navigation styles */
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #333;
-}
 
-nav a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center;
-}
+        /* Navbar transparent */
+        .navbar {
+            background: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
 
-nav a:hover {
-    background-color: #ddd;
-    color: black;
-}
+        /* Carousel images */
+        .carousel-item img {
+            height: 45vh;
+            object-fit: cover;
+            object-position: center;
+        }
 
-/* Main content styles */
-main {
-    padding: 20px;
-}
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 8px;
+        }
 
-/* Footer styles */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
+        /* Scroll-to-top button */
+        #scrollToTopButton {
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            display: none;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: white;
+        }
+
+        footer a {
+            color: #ddd;
+        }
+
+        footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }

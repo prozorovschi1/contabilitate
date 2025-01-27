@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inițierea afacerii</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Header Carousel -->
+    <header>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/initierea afacerii.jpg' %}" class="d-block w-100" alt="Audit Financiar">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="text-uppercase fw-bold text-light">Inițierea afacerii</h1>
+                        <p class="text-light">Inițierea afacerii - DirCont consultă gratuit clienții potențiali înainte de a iniția afacerea, oferindu-le informații utile ce trebuie să le știe un antreprenor înainte de a face pasul.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <section class="container py-5">
+        <h2 class="mb-4 text-dark">Procedura inițierii afacerii</h2>
+        <p>
+            La deschiderea unei afaceri, clienții noștri întâmpină anumite dificultăți în organizarea și procesarea datelor administrative. Un obstacol este necesitatea structurării și etapizării, care poate include activități apărute pe parcursul lucrului. Ritmul dinamic în care se dezvoltă afacerile cere informare permanentă și atenție deosebită la schimbările nou-introduse într-un domeniu sau altul.
+        </p>
+
+        <!-- Procesul de Inițiere a Afacerii (Orizontal) -->
+        <div class="mermaid-container">
+            <div class="mermaid">
+                graph TD;
+                    A[Start] --> B[Înregistrarea Afacerii];
+                    B --> C[Obținerea Licenței];
+                    C --> D[Deschiderea Contului Bancar];
+                    D --> E[Depunerea Documentației Fiscale];
+                    E --> F[Obținerea Autorizațiilor];
+                    F --> G[Începerea Activității];
+                    G --> H[Audit și Consultanță Periodică];
+            </div>
+        </div>
+
+        <!-- Graficul Evoluției Afacerii -->
+        <div class="canvas-container">
+            <h2 class="mb-4 text-dark">Evoluția Afacerii în Primul An</h2>
+            <p>În această secțiune se prezintă evoluția estimată a afacerii în primul an, pe baza veniturilor lunare.</p>
+            <canvas id="businessGrowthChart"></canvas>
+        </div>
+
+        <!-- Graficul Structurii Costurilor Afacerii -->
+        <div class="canvas-container">
+            <h2 class="mb-4 text-dark">Structura Costurilor Afacerii</h2>
+            <p>Distribuția costurilor principale într-o afacere tipică.</p>
+            <canvas id="costStructureChart"></canvas>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Graficul pentru evoluția afacerii
+        var ctx = document.getElementById('businessGrowthChart').getContext('2d');
+        var businessGrowthChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Luna 1', 'Luna 2', 'Luna 3', 'Luna 4', 'Luna 5', 'Luna 6', 'Luna 7', 'Luna 8', 'Luna 9', 'Luna 10', 'Luna 11', 'Luna 12'],
+                datasets: [{
+                    label: 'Venituri lunare',
+                    data: [500, 800, 1200, 1500, 1800, 2200, 2500, 2700, 3000, 3200, 3500, 4000],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Creșterea veniturilor în primul an'
+                    }
+                }
+            }
+        });
+
+        // Graficul pentru structura costurilor
+        var ctx = document.getElementById('costStructureChart').getContext('2d');
+        var costStructureChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Chirie', 'Salarii', 'Marketing', 'Materiale', 'Altele'],
+                datasets: [{
+                    label: 'Distribuția Costurilor',
+                    data: [30, 40, 15, 10, 5],
+                    backgroundColor: ['#FF5733', '#33FF57', '#3357FF', '#FF33A8', '#FF8F33'],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Costurile lunare estimative ale afacerii'
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- Includeți scriptul pentru Mermaid.js -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Adresa Companiei</h5>
+                    <p>Str. Vasile Alexandrii, Nr. 123, Chișinău, Moldova</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Servicii</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Evidența Contabilă</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Audit Financiar</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Consultanță Fiscală</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contacte</h5>
+                    <p>Email: contact@dircont.md</p>
+                    <p>Telefon: +373 123 456 789</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,7 +1,4 @@
-   {% load static %}
-   {% include 'navbar.html' %}
-   
-   
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="ro">
@@ -11,15 +8,93 @@
     <title>Prima Pagină - DirCont</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Navbar transparent */
+        .navbar {
+            background: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        /* Carousel images */
+        .carousel-item img {
+            height: 45vh;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* Scroll-to-top button */
+        #scrollToTopButton {
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            display: none;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: white;
+        }
+
+        footer a {
+            color: #ddd;
+        }
+
+        footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <header class="bg-primary text-white text-center py-5">
-        <div class="container">
-            <h1 class="display-4">Bun venit la Ducont!</h1>
-            <p class="lead">Transformă-ți afacerea într-un succes cu ajutorul nostru profesional!</p>
-            <a href="#services" class="btn btn-light btn-lg mt-3">Află mai multe</a>
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Carousel Section -->
+    <header class="pt-5">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/transport&expeditii.jpg' %}" class="d-block w-100" alt="Transport">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="text-uppercase fw-bold text-light">Transport și Expediții</h1>
+                        <p class="text-light">Contabilitatea companiilor de transport și expediție</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/audit.jpg' %}" class="d-block w-100" alt="Audit">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="text-uppercase fw-bold text-light">Audit Financiar</h1>
+                        <p class="text-light">Consultanță profesională pentru afacerea ta</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/consultanta.jpg' %}" class="d-block w-100" alt="Consultanță">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="text-uppercase fw-bold text-light">Consultanță Financiară</h1>
+                        <p class="text-light">Transformă provocările în oportunități</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </header>
 
@@ -28,14 +103,14 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
-                    <h2>Despre Ducont</h2>
+                    <h2>Despre DirCont</h2>
                     <p>
-                        La Ducont, suntem dedicați să oferim servicii contabile complete și soluții personalizate pentru afacerea ta. Echipa noastră de experți este aici pentru a te ajuta să navighezi prin complexitatea fiscală și contabilă.
+                        La DirCont, suntem dedicați să oferim servicii contabile complete și soluții personalizate pentru afacerea ta. Echipa noastră de experți este aici pentru a te ajuta să navighezi prin complexitatea fiscală și contabilă.
                     </p>
                     <a href="#services" class="btn btn-primary">Serviciile noastre</a>
                 </div>
                 <div class="col-md-6">
-                    <img src="{% static 'images/despre.jpeg' %}" alt="Despre Ducont" class="img-fluid">
+                    <img src="{% static 'images/despre.jpeg' %}" alt="Despre DirCont" class="img-fluid rounded">
                 </div>
             </div>
         </div>
@@ -74,40 +149,13 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="mb-4">Ce spun clienții noștri</h2>
-            <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <p class="lead">&ldquo;Ducont ne-a ajutat enorm să ne organizăm contabilitatea. Recomand cu întreaga întrustare!&rdquo;</p>
-                        <h5>- Maria Popescu</h5>
-                    </div>
-                    <div class="carousel-item">
-                        <p class="lead">&ldquo;Echipa Ducont este foarte profesionistă. Servicii de calitate și soluții eficiente.&rdquo;</p>
-                        <h5>- Andrei Ionescu</h5>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#testimonialsCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-dark text-light py-4">
+    <footer class="py-4">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <h5>Adresa Companiei</h5>
-                    <p>Str. Vasile Alexanddrii, Nr. 123, Chișinău, Moldova</p>
+                    <p>Str. Vasile Alexandrii, Nr. 123, Chișinău, Moldova</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Servicii</h5>
@@ -125,33 +173,27 @@
             </div>
         </div>
     </footer>
-<!-- Scroll to Top Button -->
-<a href="{% url 'home' %}" id="scrollToTopButton" class="btn btn-primary btn-lg rounded-circle position-fixed d-flex align-items-center justify-content-center" style="bottom: 20px; right: 20px; width: 50px; height: 50px; display: none;">
-    <i class="bi bi-arrow-up"></i>
-</a>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const scrollToTopButton = document.getElementById("scrollToTopButton");
 
-        // Afișează sau ascunde butonul în funcție de poziția scroll-ului
-        window.addEventListener("scroll", function () {
-            if (window.scrollY > 300) {
-                scrollToTopButton.style.display = "flex"; // Afișează butonul
-            } else {
-                scrollToTopButton.style.display = "none"; // Ascunde butonul
-            }
-        });
-
-        // Funcționalitate scroll în sus
-        scrollToTopButton.addEventListener("click", function (event) {
-            event.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" }); // Derulează lin
-        });
-    });
-</script>
-
+    <!-- Scroll to Top Button -->
+    <a href="#" id="scrollToTopButton" class="btn btn-primary btn-lg rounded-circle position-fixed d-flex align-items-center justify-content-center">
+        <i class="bi bi-arrow-up"></i>
+    </a>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const scrollToTopButton = document.getElementById("scrollToTopButton");
+
+            window.addEventListener("scroll", function () {
+                scrollToTopButton.style.display = window.scrollY > 300 ? "flex" : "none";
+            });
+
+            scrollToTopButton.addEventListener("click", function (event) {
+                event.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,53 +1,137 @@
-{% include 'navbar.html' %}
+{% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
+    <!-- Meta Tags and CSS -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <title>Calculator Audit</title>
-</head>
-<body>
-<div class="container mt-5">
-    <h1 class="text-center">Audit Preț</h1>
-    <p class="text-center">Cu acest calculator poți estima costurile de audit pentru afacerea ta!</p>
-    <div class="card">
-        <div class="card-header bg-primary text-white">
-            Calculator Audit
-        </div>
-        <div class="card-body">
-            <form method="POST">
-                {% csrf_token %}
-                <div class="mb-3">
-                    <label for="sales_volume" class="form-label">Volumul vânzărilor (anual) / mln. lei</label>
-                    {{ form.sales_volume }}
-                </div>
-                <div class="mb-3">
-                    <label for="activity_type" class="form-label">Genul de activitate</label>
-                    {{ form.activity_type }}
-                </div>
-                <div class="mb-3">
-                    <label for="employees" class="form-label">Număr de salariați</label>
-                    {{ form.employees }}
-                </div>
-                <button type="submit" class="btn btn-primary">Calculează</button>
-            </form>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-            {% if calculated_price %}
-            <div class="alert alert-success mt-3">
-                <strong>Preț estimat:</strong> {{ calculated_price }} lei
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Carousel Section -->
+    <header class="mt-5">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/audit.jpg' %}" class="d-block w-100" alt="Audit Financiar">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="text-uppercase fw-bold text-light">Audit Financiar</h1>
+                        <p class="text-light">Auditul reprezintă procesul desfășurat de auditori, prin care se analizează și se evaluează, în mod profesional, informațiile legate de o anumită entitate, utilizând tehnici și procedee specifice, în scopul obținerii probelor de audit, pe baza cărora auditorii emit un document - numit raport de audit.</p>
+                    </div>
+                </div>
             </div>
-            {% endif %}
         </div>
-        <div class="back-to-list my-3">
-            <a href="{% url 'home' %}" class="btn btn-sm btn-secondary">
-                Înapoi
-            </a>
-        </div>        
+    </header>
+    <section class="container py-5">
+        <h2 class="mb-4 text-dark">Servicii de audit prestate pentru companiile din Moldova</h2>
+        <p>
+            Compania DirCont prestează servicii de audit extern pentru antreprenorii din Chișinău cât și din toată Moldova ajutându-i să obțină maximă claritate în 
+            business, ceea ce este extrem de important și stă la baza dezvoltării oricărei companii.
+        </p>
+        <p>
+            Serviciile de audit ale companiei DirCont nu se limitează la emiterea raportului de audit, noi analizăm riguros situațiile financiare și 
+            identificăm riscurile la care afacerea Dvs este supusă, totodată oferim soluții performanțe pentru decizii profitabile.
+        </p>
+        <div class="container mt-4">
+            <h2 class="fw-bold">Auditul situației financiare este un audit obligatoriu pentru:</h2>
+            <ul>
+                <li>Întreprinderile de Stat și Municipale de interes public</li>
+                <li>
+                    Întreprinderile mijlocii și mari - care convoacă 2 din aceste condiții:
+                    <ul>
+                        <li>Active mai mari de 63.6 mln lei</li>
+                        <li>Volumul vânzărilor mai mare de 127.2 mln lei</li>
+                        <li>Numărul de salariați mai mare de 50 persoane</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <section class="container py-5">
+            <h3 class="mb-4">Beneficiile Auditului extern:</h3>
+            <ul>
+                <li>Creșterea gradului de încredere a partenerilor de afaceri</li>
+                <li>Accesarea mai ușoară a creditelor bancare</li>
+                <li>Detectarea promptă a erorilor și a fraudelor</li>
+                <li>Creșterea încrederii potențialilor investitori</li>
+                <li>Prevenirea achitării amenzilor și a penalităților</li>
+                <li>Propuneri pentru utilizarea eficientă a resurselor companiei</li>
+                <li>Analizarea amănunțită a situațiilor financiare</li>
+            </ul>
+        </section>
+    </section>        
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <h1 class="text-center">Audit Preț</h1>
+        <p class="text-center">Cu acest calculator poți estima costurile de audit pentru afacerea ta!</p>
+        
+        <!-- Calculator Card -->
+        <div class="card shadow-lg">
+            <div class="card-header bg-primary text-white">
+                Calculator Audit
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="sales_volume" class="form-label">Volumul vânzărilor (anual) / mln. lei</label>
+                        {{ form.sales_volume }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="activity_type" class="form-label">Genul de activitate</label>
+                        {{ form.activity_type }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="employees" class="form-label">Număr de salariați</label>
+                        {{ form.employees }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calculează</button>
+                </form>
+
+                <!-- Preț Estimat -->
+                {% if calculated_price %}
+                    <div class="alert alert-success mt-3">
+                        <strong>Preț estimat:</strong> {{ calculated_price }} lei
+                    </div>
+                {% endif %}
+            </div>     
+        </div>
     </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Adresa Companiei</h5>
+                    <p>Str. Vasile Alexandrii, Nr. 123, Chișinău, Moldova</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Servicii</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Evidența Contabilă</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Audit Financiar</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Consultanță Fiscală</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contacte</h5>
+                    <p>Email: contact@dircont.md</p>
+                    <p>Telefon: +373 123 456 789</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>

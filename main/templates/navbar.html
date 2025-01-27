@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container">
         <!-- Logo -->
         <a class="navbar-brand" href="{% url 'home' %}">DirCont</a>
@@ -9,15 +9,15 @@
         </button>
 
         <!-- Navbar Links -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
                 <!-- Acasă -->
-                <li class="nav-item">
+                <li class="nav-item mx-2">
                     <a class="nav-link" href="{% url 'home' %}">Acasă</a>
                 </li>
 
                 <!-- Servicii Dropdown -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown mx-2">
                     <a class="nav-link dropdown-toggle" href="#" id="serviciiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Servicii
                     </a>
@@ -32,7 +32,7 @@
                 </li>
 
                 <!-- Despre Noi Dropdown -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown mx-2">
                     <a class="nav-link dropdown-toggle" href="#" id="despreNoiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Despre noi
                     </a>
@@ -44,7 +44,7 @@
                 </li>
 
                 <!-- Calculatoare Dropdown -->
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown mx-2">
                     <a class="nav-link dropdown-toggle" href="#" id="calculatoareDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Calculatoare
                     </a>
@@ -56,22 +56,22 @@
                 </li>
 
                 <!-- Blog -->
-                <li class="nav-item">
+                <li class="nav-item mx-2">
                     <a class="nav-link" href="{% url 'blog_list' %}">Blog</a>
                 </li>
 
                 <!-- Carieră -->
-                <li class="nav-item">
+                <li class="nav-item mx-2">
                     <a class="nav-link" href="#">Carieră</a>
                 </li>
 
                 <!-- Contacte -->
-                <li class="nav-item">
+                <li class="nav-item mx-2">
                     <a class="nav-link" href="#">Contacte</a>
                 </li>
 
                 <!-- Login -->
-                <li class="nav-item">
+                <li class="nav-item mx-2">
                     <a class="nav-link" href="#">Login</a>
                 </li>
             </ul>
