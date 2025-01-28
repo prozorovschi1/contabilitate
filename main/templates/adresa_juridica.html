@@ -1,4 +1,99 @@
 {% load static %}
-{% include 'navbar.html' %}
 
-<h1>salut</h1>
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evidența Contabilă</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Header Carousel -->
+    <header>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/Adresă Juridică.avif' %}" class="d-block w-100" alt="Audit Financiar">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="text-uppercase fw-bold text-light">Adresă Juridică</h1>
+                        <p class="text-light">Adresa Juridică reprezintă sediul unei întreprinderi 
+                            și este un element esențial în constituirea unei companii, dat fiind faptul că ea figurează în Actele Constitutive ale companiei, această adresă fiind necesară și pe tot parcursul derulării unei afaceri sau în cazul schimbării sediului entității dumneavoastră.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Content Section -->
+    <section class="container py-5">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+        </style>
+        <h2 class="mb-4 text-dark">Obținerea unei Adrese Juridice gratuite</h2>
+        <p>
+            Pentru a beneficia de serviciul Adresă Juridică gratuită este nevoie să fiți (sau să deveniți) 
+            client DirCont, adică trebuie să aveți încheiat sau să încheiați un contract cu compania, contract în care este stipulat faptul că DirCont vă 
+            prestează alte servicii decât Adresă Juridică, dintre cele ce pot fi regăsite în portofoliul întreprinderii, cum ar fi: servicii de evidență contabilă, consultanță la inițierea unei afaceri, consultanță fiscală și contabilă etc.
+        </p>
+        <p>
+            Client DirCont se consideră cel ce a încheiat cu compania un contract de prestare de servicii, iar acest titlu este oferit pe toată durata contractului, 
+            adică de la data încheierii contractului de colaborare și până la desființarea acestuia.
+        </p>
+        <p>DirCont oferă acest serviciu gratuit atât clienților noi, cât și celor mai vechi.</p>
+
+        <h2 class="mb-4 text-dark">Sediu Juridic de la DirCont</h2>
+        <p>Ducont oferă și servicii de Găzduire a Sediului Juridic, acest serviciu 
+            reprezentând oferirea unei Adrese Juridice pe o perioadă limitată.
+        </p>
+        <p>Serviciul de oferire a unui Sediu Juridic este destinat întreprinderilor în tranziție, ce migrează de la reședința lor inițială, având intenția de a se 
+            stabili la o altă adresă, după o anumită perioadă de căutări.
+        </p>
+        <h2>Condițiile pentru a obține Adresă Juridică sau Sediu Juridic</h2>
+        <li>Termenul oferirii Adresei este pentru tot parcursul derulării contractului încheiat cu compania Ducont. Oferta expiră în cazul rezilierii contractului.</li>
+        <li>Serviciul Adresă Juridică gratuită este destinat oricărui client, 
+            nu sunt stabilite restricții și nici privilegii.</li>
+        <li>Adresa Juridică este în orașul Chișinău, sectorul centru.</li>
+        <li>Nu se oferă și o adresă poștală.</li>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Adresa Companiei</h5>
+                    <p>Str. Vasile Alexandri, Nr. 123, Chișinău, Moldova</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Servicii</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'evidenta_contabila' %}" class="text-light text-decoration-none">Evidența Contabilă</a></li>
+                        <li><a href="{% url 'audit' %}" class="text-light text-decoration-none">Audit Financiar</a></li>
+                        <li><a href="{% url 'consultanta_fiscala' %}" class="text-light text-decoration-none">Consultanță Fiscală</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contacte</h5>
+                    <p>Email: contact@dircont.md</p>
+                    <p>Telefon: +373 123 456 789</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

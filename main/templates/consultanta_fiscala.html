@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evidența Contabilă</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Header Carousel -->
+    <header>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/consulting-header.jpg' %}" class="d-block w-100" alt="Audit Financiar">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="text-uppercase fw-bold text-light">Consultanță Fiscală</h1>
+                        <p class="text-light">Serviciul de consultanţă fiscală oferită de către echipa DirCont, vine în ajutorul întreprinzătorilor în perioada 
+                            controalelor fiscale şi în orice moment când e nevoie de clarificări, asistență şi informare privind legislaţia fiscală, dar şi alte aspecte.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Content Section -->
+    <section class="container py-5">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+        </style>
+        <p>
+            Serviciul de consultanţă fiscală oferită de către echipa DirCont, vine în ajutorul întreprinzătorilor în perioada controalelor 
+            fiscale şi în orice moment când e nevoie de clarificări, asistență şi informare privind legislaţia fiscală, dar şi alte aspecte.
+        </p>
+        <p>
+            Echipa DirCont vine cu un set de soluţii utile pentru afacerea Dumneavoastră, considerând serviciul de consultanţă fiscală una dintre priorităţi. Chiar şi fără schimbările şi revizuirile succesive, legislaţia fiscală este una foarte complexă şi presupune o abordare amănunțită, iar interpretările greşite şi nerespectarea legilor – pot afecta mersul afacerii. Cu Ducont, acest lucru nu va mai fi o problemă, 
+            deoarece veţi beneficia de suport continuu în chestiuni ce țin de fiscalitate.
+        </p>
+
+        <h2>Consultanță contabilă</h2>
+        <ol>
+            <li>Se oferă asistență în timpul controlului fiscal:
+                <ul>
+                    <li>Consultare prealabilă</li>
+                    <li>Verificarea și pregătirea documentelor către control</li>
+                    <li>Vom asigura mersul corect al controalelor fiscale</li>
+                </ul>
+            </li>
+            <li>DirCont mereu va fi în contact cu tine:
+                <ul>
+                    <li>Prin toate mijloacele disponibile: telefon/fax, chat, e-mail, skype.</li>
+                    <li>Pune-ți întrebări de contabilitate și primiți răspunsuri clare și exacte.</li>
+                </ul>
+            </li>
+            <li>Legile și aspectele ce țin de impozitare:
+                <ul>
+                    <li>Suntem mereu la curent cu cele mai recente modificări ale legislației.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>Consultanță fiscală:</h2>
+        <ul>
+            <li>Consultanță privind optimizarea fiscală la nivelul organizației dumneavoastră</li>
+            <li>Informare privind cuantumul și calculul obligațiilor de plată pentru: impozitul pe venitul din salarii, contribuții sociale și medicale, impozitul pe profit</li>
+            <li>Informarea permanentă și în timp util a conducerii societății privind reglementările din domeniul fiscal și financiar-contabil</li>
+            <li>Instruirea personalului cu privire la modul de întocmire al documentelor primare și circuitul acestora în cadrul organizației</li>
+            <li>Consultanță în alegerea sistemului informatic necesar activității.</li>
+        </ul>
+        <p>
+            Indiferent de nivelul de dezvoltare al afacerii Dumneavoastră, consultarea unui expert fiscal este o necesitate 
+            constantă, ținând cont de complexitatea legislaţiei şi mai ales, de importanţa ei.
+        </p>
+        <p>
+            Acest set de soluţii propuse de către experţii echipei Ducont va prelua în totalitate 
+            responsabilitatea obligaţiilor fiscale și povara lor de pe umerii Dumneavoastră. Noi avem o experienţă vastă şi cunoştinţele 
+            necesare întru a vă asigura cu informaţii utile, cu noile detalii şi schimbările din legislație. Personalul companiei Dvs. va deveni unul instruit şi la curent cu cele mai importante aspecte 
+            ale modului de întocmire al documentelor şi va cunoaște și alte elemente birocratice.
+        </p>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Adresa Companiei</h5>
+                    <p>Str. Vasile Alexandri, Nr. 123, Chișinău, Moldova</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Servicii</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Evidența Contabilă</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Audit Financiar</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Consultanță Fiscală</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contacte</h5>
+                    <p>Email: contact@dircont.md</p>
+                    <p>Telefon: +373 123 456 789</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
