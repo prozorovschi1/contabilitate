@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404 
 from django.contrib import messages
-from .forms import ContactForm, NewsletterForm, AuditPriceForm
+from .forms import ContactForm, NewsletterForm, AuditPriceForm, AplicareForm
 from .models import Testimonial, BlogPost
 from .utils import calculate_audit_price
+from django.core.mail import EmailMessage
+
 
 
 def home(request):
@@ -83,3 +85,44 @@ def blog_list(request):
 def blog_detail(request, id):
     post = get_object_or_404(BlogPost, id=id)
     return render(request, 'blog_detail.html', {'post': post})
+
+def cariera_view(request):
+    if request.method == 'POST':
+        form = AplicareForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Obține datele din formular
+            nume = form.cleaned_data['nume']
+            email = form.cleaned_data['email']
+            telefon = form.cleaned_data['telefon']
+            pozitie = form.cleaned_data['pozitie']
+            salariu = form.cleaned_data['salariu']
+            regiune = form.cleaned_data['regiune']
+            cv = request.FILES['cv']
+
+            # Trimite email cu datele aplicantului
+            mesaj = f"""
+            Aplicare nouă pentru poziția {pozitie}:
+
+            Nume Prenume: {nume}
+            E-mail: {email}
+            Telefon: {telefon}
+            Salariul dorit: {salariu}
+            Regiune: {regiune}
+            """
+            email_mesaj = EmailMessage(
+                subject=f"Aplicare nouă: {pozitie}",
+                body=mesaj,
+                from_email="noreply@firma-ta.com",
+                to=["hr@firma-ta.com"],
+            )
+            email_mesaj.attach(cv.name, cv.read(), cv.content_type)
+            email_mesaj.send()
+
+            messages.success(request, "Aplicarea a fost trimisă cu succes!")
+            form = AplicareForm()  # Resetează formularul după trimitere
+        else:
+            messages.error(request, "Te rugăm să completezi corect toate câmpurile.")
+    else:
+        form = AplicareForm()
+
+    return render(request, 'cariera.html', {'form': form})

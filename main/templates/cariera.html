@@ -1,0 +1,150 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evidența Contabilă</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
+
+    <!-- Header Carousel -->
+    <header>
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/cariera.jpg' %}" class="d-block w-100" alt="Audit Financiar">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="text-uppercase fw-bold text-light">Carieră</h1>
+                        <p class="text-light">Alătură-te echipei noastre de profesioniști și împreună vom deschide uși către oportunități 
+                            nebănuite și creștere personală și profesională continuă alături de cei mai buni din domeniul contabilității.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Content Section -->
+    <section class="container py-5">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+        </style>
+        <h2 class="mb-4 text-dark">Cine suntem noi?</h2>
+        <p>
+            Suntem o companie specializată în servicii de contabilitate și ne mândrim cu echipa noastră de profesioniști pasionați și dedicați. Valorile noastre fundamentale sunt integritatea, calitatea și excelența, iar prin abordarea noastră proactivă și soluțiile personalizate, oferim clienților noștri servicii de contabilitate superioare. Cu un mediu de lucru prietenos și inovator, promovăm 
+            colaborarea și creșterea personală și profesională a fiecărui membru al echipei noastre.
+        </p>
+        <p>
+            Alătură-te echipei noastre și vei descoperi că spiritul de colaborare este în centrul activităților noastre. Ne susținem reciproc, ne încurajăm să depășim limitele și să explorăm lucruri noi. 
+            Fiecare zi reprezintă o oportunitate de a învăța ceva nou și de a ne îmbunătăți abilitățile. 
+        </p>
+        <h2 class="mb-4 text-dark">Posturile vacante disponibile</h2>
+
+        <div class="container mt-5">
+            <h2 class="text-center">Aplică</h2>
+            <hr style="width: 50px; border: 2px solid blue; margin: auto; margin-bottom: 20px;">
+    
+            <!-- Mesaje de succes/eroare -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+    
+            <form action="{% url 'cariera' %}" method="post" enctype="multipart/form-data" class="row g-3">
+                {% csrf_token %}
+    
+                <div class="col-md-6">
+                    <label for="id_nume" class="form-label">Nume Prenume:</label>
+                    <input type="text" class="form-control" id="id_nume" name="nume" required>
+                </div>
+    
+                <div class="col-md-6">
+                    <label for="id_email" class="form-label">E-mail:</label>
+                    <input type="email" class="form-control" id="id_email" name="email" required>
+                </div>
+    
+                <div class="col-md-6">
+                    <label for="id_telefon" class="form-label">Telefon:</label>
+                    <input type="text" class="form-control" id="id_telefon" name="telefon" required>
+                </div>
+    
+                <div class="col-md-6">
+                    <label for="id_pozitie" class="form-label">Poziție:</label>
+                    <select class="form-select" id="id_pozitie" name="pozitie" required>
+                        <option selected disabled>Alege poziția dorită</option>
+                        <option value="contabil">Contabil</option>
+                        <option value="auditor">Auditor</option>
+                        <option value="consultant">Consultant</option>
+                    </select>
+                </div>
+    
+                <div class="col-md-6">
+                    <label for="id_salariu" class="form-label">Salariul dorit:</label>
+                    <input type="text" class="form-control" id="id_salariu" name="salariu">
+                </div>
+    
+                <div class="col-md-6">
+                    <label for="id_regiune" class="form-label">Regiune:</label>
+                    <select class="form-select" id="id_regiune" name="regiune" required>
+                        <option selected disabled>Alege regiunea dorită</option>
+                        <option value="Chisinau">Chișinău</option>
+                        <option value="Balti">Bălți</option>
+                        <option value="Cahul">Cahul</option>
+                    </select>
+                </div>
+    
+                <div class="col-md-12 text-center">
+                    <label for="id_cv" class="form-label">Atașează CV-ul tău:</label>
+                    <input type="file" class="form-control" id="id_cv" name="cv" required>
+                </div>
+    
+                <div class="col-12 text-center mt-3">
+                    <button type="submit" class="btn btn-success">Trimite</button>
+                </div>
+            </form>
+        </div>
+        
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Adresa Companiei</h5>
+                    <p>Str. Vasile Alexandri, Nr. 123, Chișinău, Moldova</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Servicii</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'evidenta_contabila' %}" class="text-light text-decoration-none">Evidența Contabilă</a></li>
+                        <li><a href="{% url 'audit' %}" class="text-light text-decoration-none">Audit Financiar</a></li>
+                        <li><a href="{% url 'consultanta_fiscala' %}" class="text-light text-decoration-none">Consultanță Fiscală</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Contacte</h5>
+                    <p>Email: contact@dircont.md</p>
+                    <p>Telefon: +373 123 456 789</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

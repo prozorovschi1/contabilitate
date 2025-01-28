@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import cariera_view
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -13,4 +14,6 @@ urlpatterns = [
 
     path('blog/', views.blog_list, name='blog_list'),
     path('blog/<int:id>/', views.blog_detail, name='blog_detail'),
+
+    path('cariera/', cariera_view, name='cariera'),
 ]
