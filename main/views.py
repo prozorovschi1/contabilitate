@@ -4,7 +4,7 @@ from .forms import ContactForm, NewsletterForm, AuditPriceForm, AplicareForm
 from .models import Testimonial, BlogPost
 from .utils import calculate_audit_price
 from django.core.mail import EmailMessage
-
+from .forms import SolicitareServiciuForm
 
 
 def home(request):
@@ -64,7 +64,18 @@ def audit(request):
     return render(request, 'audit.html', context)
 
 def evidenta_contabila(request):
-    return render(request, 'evidenta_contabila.html')
+    if request.method == "POST":
+        form = SolicitareServiciuForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Solicitarea a fost trimisă cu succes!")
+            return redirect('evidenta_contabila')
+        else:
+            messages.error(request, "A apărut o eroare. Verifică datele introduse.")
+    else:
+        form = SolicitareServiciuForm(request.POST)
+
+    return render(request, 'evidenta_contabila.html', {'form': form})
 
 def initierea_afacerii(request):
     return render(request, 'initierea_afacerii.html')

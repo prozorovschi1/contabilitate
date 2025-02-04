@@ -41,4 +41,15 @@ class AuditPriceCalculator(models.Model):
     price = models.FloatField(null=True, blank=True, help_text="Preț calculat (lei)")
 
     def __str__(self):
-        return f"{self.activity_type} - {self.sales_volume} mil. lei - {self.employees} salariați"
+            return f"{self.activity_type} - {self.sales_volume} mil. lei - {self.employees} salariați"
+    
+class SolicitareServiciu(models.Model):
+        nume = models.CharField(max_length=100)
+        email = models.EmailField()
+        telefon = models.CharField(max_length=20)
+        serviciu = models.CharField(max_length=200)
+        mesaj = models.TextField()
+        data_trimiterii = models.DateTimeField(auto_now_add=True)
+    
+        def __str__(self):
+            return f"{self.nume} - {self.serviciu}"

@@ -1,6 +1,6 @@
 # forms.py
 from django import forms
-from .models import BlogPost, AuditPriceCalculator
+from .models import BlogPost, AuditPriceCalculator, SolicitareServiciu
 
 
 class ContactForm(forms.Form):
@@ -49,3 +49,8 @@ class AplicareForm(forms.Form):
     regiune = forms.ChoiceField(choices=REGIUNI_CHOICES, label="Regiune", required=True)
     
     cv = forms.FileField(label="Atașează CV-ul tău")
+
+class SolicitareServiciuForm(forms.ModelForm):
+    class Meta:
+        model = SolicitareServiciu
+        fields = ['nume', 'email', 'telefon', 'serviciu', 'mesaj']
